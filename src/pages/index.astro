@@ -1,11 +1,164 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
+const nav = [
+  { label: 'Home', href: '#home' },
+  { label: 'Divisions', href: '#divisions' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
+];
+const divisions = [
+  { key: 'MintWorks', icon: '🛠️', blurb: 'Services, micro SaaS, and boutique sites. Ship fast, learn faster.', href: '/mintworks', tag: 'Client & product services' },
+  { key: 'MintScale', icon: '📈', blurb: 'Analytics & AI tools. Practical data products with leverage.', href: '/mintscale', tag: 'Data & AI' },
+  { key: 'MintLabs', icon: '🧪', blurb: 'Creative experiments and zany builds — where weird gets shipped.', href: '/mintlabs', tag: 'Experiments' },
+];
+const featured = [
+  { title: 'Zonely', subtitle: 'Lean time-zone scheduler', href: 'https://zonely.mintloop.dev' },
+  { title: 'Fridgy', subtitle: 'Pantry + recipe helper', href: 'https://fridgy.mintloop.dev' },
+  { title: "Cat's Out", subtitle: 'Mobile mini-game', href: 'https://catsout.mintloop.dev' },
+  { title: 'Big Wild Wild West', subtitle: 'Sports stats hub', href: 'https://bigwild.mintloop.dev' },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MintLoop — small, sharp products</title>
+    <meta name="description" content="MintLoop is a two-person studio shipping micro-projects under MintWorks, MintScale, and MintLabs." />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body id="home" class="min-h-screen bg-[#07110d] text-white selection:bg-emerald-300/30">
+    <!-- Aura background -->
+    <div aria-hidden class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute -top-40 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl"></div>
+    </div>
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-black/30">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <a href="#home" class="group inline-flex items-center gap-2">
+          <div class="h-6 w-6 rounded-md bg-gradient-to-br from-emerald-400 to-emerald-600"></div>
+          <span class="font-semibold tracking-tight text-emerald-300 group-hover:text-emerald-200">MintLoop</span>
+        </a>
+        <nav class="hidden gap-6 md:flex">
+          {nav.map((n) => (
+            <a class="text-sm text-zinc-300 hover:text-white" href={n.href}>{n.label}</a>
+          ))}
+        </nav>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-200 hover:bg-emerald-500/20 md:px-4">
+          <span aria-hidden>✨</span> Start a project
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-16 pt-12 sm:px-6 md:grid-cols-2 lg:pt-24">
+      <div>
+        <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">We build small, sharp products — fast.</h1>
+        <p class="mt-4 max-w-xl text-base leading-7 text-zinc-300">
+          MintLoop is a two-person studio in Long Beach, CA. We ship scrappy micro-projects under three divisions — MintWorks, MintScale, and MintLabs — to learn quickly, generate revenue, and have fun doing it.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#divisions" class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500">Explore divisions →</a>
+          <a href="#projects" class="inline-flex items-center gap-2 rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-200 hover:bg-emerald-500/20">See projects</a>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-zinc-400">
+          <span class="rounded-full border border-zinc-700/60 px-3 py-1">Astro + Tailwind + TS</span>
+          <span class="rounded-full border border-zinc-700/60 px-3 py-1">Edge/serverless</span>
+          <span class="rounded-full border border-zinc-700/60 px-3 py-1">Vercel • Supabase</span>
+        </div>
+      </div>
+      <div aria-hidden class="relative">
+        <div class="aspect-[4/3] w-full overflow-hidden rounded-3xl border border-emerald-500/20 bg-gradient-to-br from-emerald-900/20 to-emerald-800/10 p-4 shadow-2xl">
+          <div class="grid h-full w-full grid-cols-3 gap-3">
+            {Array.from({ length: 9 }).map(() => (
+              <div class="rounded-2xl border border-emerald-500/10 bg-black/30"></div>
+            ))}
+          </div>
+        </div>
+        <div class="absolute -bottom-3 left-6 rounded-full bg-emerald-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">Built in Long Beach, CA</div>
+      </div>
+    </section>
+
+    <!-- Divisions -->
+    <section id="divisions" class="border-t border-emerald-500/10 bg-black/20 py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="mb-8 flex items-end justify-between gap-6">
+          <h2 class="text-2xl font-bold text-white">Divisions</h2>
+          <a href="#projects" class="text-sm text-emerald-300 hover:text-emerald-200">View active projects →</a>
+        </div>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {divisions.map((d) => (
+            <a href={d.href} class="group relative rounded-2xl border border-emerald-500/20 bg-gradient-to-b from-zinc-900/40 to-zinc-900/10 p-5 transition hover:border-emerald-400/40">
+              <div class="mb-3 inline-flex rounded-xl bg-emerald-500/10 p-2 text-emerald-300">{d.icon}</div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-lg font-semibold text-white">{d.key}</h3>
+                <span class="text-zinc-400 group-hover:text-emerald-300">↗</span>
+              </div>
+              <p class="mt-2 text-sm text-zinc-300">{d.blurb}</p>
+              <div class="mt-4 text-xs text-emerald-300/80">{d.tag}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured projects -->
+    <section id="projects" class="py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <h2 class="mb-6 text-2xl font-bold text-white">Featured projects</h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {featured.map((f) => (
+            <a href={f.href} class="group rounded-2xl border border-emerald-500/20 bg-zinc-900/30 p-5 hover:border-emerald-400/40">
+              <div class="mb-10 aspect-video w-full overflow-hidden rounded-xl border border-emerald-500/10 bg-gradient-to-br from-emerald-900/20 to-emerald-800/10"></div>
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <h3 class="font-semibold text-white">{f.title}</h3>
+                  <p class="text-sm text-zinc-400">{f.subtitle}</p>
+                </div>
+                <span class="text-zinc-400 group-hover:text-emerald-300">→</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="border-t border-emerald-500/10 bg-black/20 py-16">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6">
+        <h2 class="text-2xl font-bold text-white">About MintLoop</h2>
+        <p class="mt-3 text-zinc-300">
+          We’re a lean studio focused on learning by shipping. Each project is scoped to be profitable or portfolio-worthy within weeks, not months. We prioritize low-cost tools, scrappy MVPs, and building in public. If that sounds like your vibe, let’s talk.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6">
+        <div class="rounded-3xl border border-emerald-500/20 bg-zinc-900/40 p-8">
+          <h2 class="text-xl font-semibold text-white">Get in touch</h2>
+          <p class="mt-2 text-sm text-zinc-300">Have a scrappy idea, a boutique site, or a data problem? We’re all ears.</p>
+          <div class="mt-6 grid gap-3 sm:grid-cols-3">
+            <a href="mailto:info@mintloop.dev" class="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-emerald-200 hover:bg-emerald-500/20">✉️ info@mintloop.dev</a>
+            <a href="https://github.com/" class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700/70 px-4 py-3 text-zinc-300 hover:border-emerald-400/40 hover:text-emerald-200">GitHub</a>
+            <a href="https://mintloop.dev" class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700/70 px-4 py-3 text-zinc-300 hover:border-emerald-400/40 hover:text-emerald-200">Website</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-emerald-500/10 py-10 text-sm text-zinc-400">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6">
+        <p>© {new Date().getFullYear()} MintLoop — Built with ❤ in Long Beach, CA.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-emerald-300">Privacy</a>
+          <a href="#" class="hover:text-emerald-300">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

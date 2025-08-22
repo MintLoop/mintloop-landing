@@ -75,15 +75,18 @@ const featured = [
         <a href="#home" class="group inline-flex items-center gap-2">
           <div class="relative h-10 w-11 rounded-md bg-gradient-to-br from-emerald-200 to-emerald-900">
             <img src="/SVG/mintloopicon_transparent.svg" alt="MintLoop logo" 
-                 class="absolute inset-0 m-auto h-30 w-30 object-contain" />
+                 class="absolute inset-0 m-auto h-8 w-8 object-contain" />
           </div>
           <span class="font-semibold tracking-tight text-emerald-300 group-hover:text-emerald-200">MintLoop</span>
         </a>
-        <nav class="hidden gap-6 md:flex">
+
+        <!-- make nav visible on mobile (horizontal scroll) and keep md layout -->
+        <nav class="flex gap-4 overflow-x-auto md:gap-6">
           {nav.map((n) => (
-            <a class="text-sm text-zinc-300 hover:text-white" href={n.href}>{n.label}</a>
+            <a class="text-sm text-zinc-300 hover:text-white whitespace-nowrap" href={n.href}>{n.label}</a>
           ))}
         </nav>
+
         <a href="#contact" class="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-200 hover:bg-emerald-500/20 md:px-4">
           <span aria-hidden>💡</span> Start a project
         </a>

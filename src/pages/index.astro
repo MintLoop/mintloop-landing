@@ -75,18 +75,15 @@ const featured = [
         <a href="#home" class="group inline-flex items-center gap-2">
           <div class="relative h-10 w-11 rounded-md bg-gradient-to-br from-emerald-200 to-emerald-900">
             <img src="/SVG/mintloopicon_transparent.svg" alt="MintLoop logo" 
-                 class="absolute inset-0 m-auto h-8 w-8 object-contain" />
+                 class="absolute inset-0 m-auto h-30 w-30 object-contain" />
           </div>
           <span class="font-semibold tracking-tight text-emerald-300 group-hover:text-emerald-200">MintLoop</span>
         </a>
-
-        <!-- make nav visible on mobile (horizontal scroll) and keep md layout -->
-        <nav class="flex gap-4 overflow-x-auto md:gap-6">
+        <nav class="hidden gap-6 md:flex">
           {nav.map((n) => (
-            <a class="text-sm text-zinc-300 hover:text-white whitespace-nowrap" href={n.href}>{n.label}</a>
+            <a class="text-sm text-zinc-300 hover:text-white" href={n.href}>{n.label}</a>
           ))}
         </nav>
-
         <a href="#contact" class="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-200 hover:bg-emerald-500/20 md:px-4">
           <span aria-hidden>💡</span> Start a project
         </a>
@@ -94,9 +91,9 @@ const featured = [
     </header>
 
     <!-- Hero -->
-    <section class="mx-auto grid max-w-6xl grid-cols-3 items-center gap-10 px-4 pb-16 pt-12 sm:px-6 md:grid-cols-2 lg:pt-24">
+    <section class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-4 pb-16 pt-12 sm:px-6 lg:pt-24">
       <div>
-        <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Minting the Future</h1>
+        <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">Minting the Future</h1>
         <p class="mt-4 max-w-xl text-base leading-8 text-zinc-300">
           MintLoop is an indie studio in Long Beach, CA. We ship micro-projects under four divisions — MintWorks, MintScale, MintLabs, and MintDrop — to build quickly, generate revenue, and have fun doing it.
         </p>
@@ -110,7 +107,7 @@ const featured = [
           <span class="rounded-full border border-zinc-600/60 px-2 py-1">Entertainment • Trending</span>
         </div>
       </div>
-      <div aria-hidden class="relative">
+      <div aria-hidden class="relative hidden md:block">
         <div class="aspect-[4/3] w-full overflow-hidden rounded-4xl border border-emerald-500/20 bg-gradient-to-br from-emerald-900/20 to-emerald-800/10 p-4 shadow-2xl">
           <div class="grid h-full w-full grid-cols-6 gap-3">
             {Array.from({ length: 12 }).map(() => (

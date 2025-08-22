@@ -1,0 +1,15 @@
+---
+const { theme, title, subtitle, logo, ctaHref = "/#contact", ctaLabel = "Start a project" } = Astro.props;
+---
+<section class={`relative overflow-hidden ${theme}`}>
+  <div class="pointer-events-none absolute inset-0 -z-10 opacity-25 bg-brand-grad"></div>
+  <div class="mx-auto max-w-6xl px-4 py-12 text-white">
+    {logo && <img src={logo} alt={`${title} logo`} class="h-26 mb-1" />}
+    <h1 class="text-4xl font-bold">{title}</h1>
+    <p class="mt-2 max-w-2xl text-zinc-300">{subtitle}</p>
+    <div class="mt-6 flex gap-3">
+      <a href={ctaHref} class="rounded-lg bg-brand px-4 py-2 font-semibold hover:opacity-90">{ctaLabel}</a>
+      <a href="/" class="rounded-lg border border-brand px-4 py-2 text-brand hover:bg-brand/10">Back home</a>
+    </div>
+  </div>
+</section>

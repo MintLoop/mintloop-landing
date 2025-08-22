@@ -1,10 +1,48 @@
 ---
 import "../../styles/global.css";
+import DivisionHero from "../../components/DivisionHero.astro";
 ---
-<html lang="en"><body class="min-h-screen bg-[#07110d] text-white">
-  <main class="mx-auto max-w-4xl p-6">
-    <h1 class="text-3xl font-bold text-emerald-400">MintWorks</h1>
-    <p class="mt-2 text-zinc-300">Services, micro SaaS, and boutique sites.</p>
-    <a class="mt-6 inline-block rounded-lg bg-emerald-600 px-4 py-2 font-semibold hover:bg-emerald-500" href="/">← Back home</a>
-  </main>
-</body></html>
+<DivisionHero
+  theme="theme-mintworks"
+
+  subtitle="Services, boutique builds, and micro-SaaS MVPs shipped fast."
+  logo="/SVG/MintWorks.svg"
+  ctaHref="/#contact"
+  ctaLabel="Request a quote" />
+
+<section class="mx-auto max-w-6xl px-4 py-10 text-white">
+  <h2 class="text-xl font-semibold">What we ship</h2>
+  <div class="mt-5 grid gap-5 sm:grid-cols-3">
+    <div class="rounded-2xl border p-5" style="border-color:var(--stroke);background:var(--card);">
+      <h3 class="font-semibold">Boutique Sites</h3>
+      <p class="mt-1 text-sm text-zinc-300">Fast, ad/affiliate-ready sites with analytics.</p>
+    </div>
+    <div class="rounded-2xl border p-5" style="border-color:var(--stroke);background:var(--card);">
+      <h3 class="font-semibold">Micro-SaaS</h3>
+      <p class="mt-1 text-sm text-zinc-300">Scope to revenue in weeks, not months.</p>
+    </div>
+    <div class="rounded-2xl border p-5" style="border-color:var(--stroke);background:var(--card);">
+      <h3 class="font-semibold">Maintenance</h3>
+      <p class="mt-1 text-sm text-zinc-300">Iterate, measure, improve.</p>
+    </div>
+  </div>
+
+  <h2 class="mt-10 text-xl font-semibold">Tools</h2>
+  <div class="mt-4 grid gap-5 sm:grid-cols-3">
+    <a href="/mintworks/zonely" class="group rounded-2xl border p-5 hover:shadow-xl" style="border-color:var(--stroke);background:var(--card);">
+      <h3 class="font-semibold">Zonely (preview)</h3>
+      <p class="mt-1 text-sm text-zinc-300">Lean time-zone scheduler.</p>
+      <span class="mt-2 inline-block text-brand">Open →</span>
+    </a>
+    <a href="/mintworks/fridgy" class="group rounded-2xl border p-5 hover:shadow-xl" style="border-color:var(--stroke);background:var(--card);">
+      <h3 class="font-semibold">Fridgy (preview)</h3>
+      <p class="mt-1 text-sm text-zinc-300">Pantry + recipe helper.</p>
+      <span class="mt-2 inline-block text-brand">Open →</span>
+    </a>
+        <a href="/mintworks/yoursite" class="group rounded-2xl border p-5 hover:shadow-xl" style="border-color:var(--stroke);background:var(--card);">
+      <h3 class="font-semibold">Choose from a wide variety of designs (preview)</h3>
+      <p class="mt-1 text-sm text-zinc-300">Online stores and boutique sites.</p>
+      <span class="mt-2 inline-block text-brand">Open →</span>
+    </a>
+  </div>
+</section>

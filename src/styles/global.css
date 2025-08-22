@@ -2,3 +2,51 @@
 
 /* optional: your custom base styles */
 :root { color-scheme: dark; }
+
+/* Base (MintLoop core) */
+:root {
+  --bg: #07110d;
+  --text: #ffffff;
+  --card: rgba(24, 24, 27, 0.5);
+  --stroke: rgba(16, 185, 129, 0.15); /* subtle emerald stroke */
+}
+
+/* Division themes — you can tweak -600/-700 for hover/gradients */
+.theme-mintworks {
+  --brand-500: #FF8F00; /* Amber/Orange */
+  --brand-600: #e57f00;
+  --brand-700: #c86f00;
+}
+
+.theme-mintscale {
+  --brand-500: #00BFA6; /* Teal */
+  --brand-600: #00a994;
+  --brand-700: #009281;
+}
+
+.theme-mintlabs {
+  --brand-500: #9C27B0; /* Deep Plum */
+  --brand-600: #8c23a0;
+  --brand-700: #7a1f8e;
+}
+
+.theme-mintdrop {
+  --brand-500: #FF3131; /* Cyber Red */
+  --brand-600: #e12b2b;
+  --brand-700: #c42626;
+  /* If you ever want Hot Magenta instead:
+     --brand-500: #FF0054; --brand-600: #e0004b; --brand-700: #c00041; */
+}
+
+/* Convenience utility classes (use with Tailwind classes) */
+.bg-brand   { background-color: var(--brand-500); }
+.text-brand { color: var(--brand-500); }
+.border-brand { border-color: color-mix(in oklab, var(--brand-500) 45%, white); }
+
+/* Nice gradient helpers */
+.bg-brand-grad {
+  background-image: linear-gradient(135deg, color-mix(in oklab, var(--brand-500) 80%, black) 0%, var(--brand-500) 100%);
+}
+.bg-brand-glow {
+  background: radial-gradient(600px 600px at 50% -10%, color-mix(in oklab, var(--brand-500) 25%, transparent), transparent 60%);
+}

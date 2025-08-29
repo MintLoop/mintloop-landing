@@ -50,3 +50,12 @@
 .bg-brand-glow {
   background: radial-gradient(600px 600px at 50% -10%, color-mix(in oklab, var(--brand-500) 25%, transparent), transparent 60%);
 }
+
+/* Mobile safe area & smoother scrolling */
+html { scroll-behavior: smooth; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+/* Reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

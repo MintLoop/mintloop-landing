@@ -1,4 +1,4 @@
----
+<!-- ---
 const { theme, title, subtitle, logo, ctaHref = "/#contact", ctaLabel = "Start a project" } = Astro.props;
 ---
 <section class={`relative overflow-hidden ${theme}`}>
@@ -10,6 +10,38 @@ const { theme, title, subtitle, logo, ctaHref = "/#contact", ctaLabel = "Start a
     <div class="mt-6 flex gap-3">
       <a href={ctaHref} class="rounded-lg bg-brand px-4 py-2 font-semibold hover:opacity-90">{ctaLabel}</a>
       <a href="/" class="rounded-lg border border-brand px-4 py-2 text-brand hover:bg-brand/10">Back home</a>
+    </div>
+  </div>
+</section>
+
+
+ -->
+
+
+ ---
+const { theme, title, subtitle, logo, ctaHref = "/#contact", ctaLabel = "Start a project" } = Astro.props;
+---
+<section class={`relative overflow-hidden ${theme}`}>
+  <div class="pointer-events-none absolute inset-0 -z-10 opacity-25 bg-brand-grad"></div>
+
+  <div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 text-white">
+    {logo && (
+      <img src={logo} alt={`${title} logo`}
+           class="h-12 w-auto sm:h-16 mb-4 sm:mb-6"
+           loading="eager" decoding="sync" />
+    )}
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">{title}</h1>
+    <p class="mt-2 sm:mt-3 max-w-2xl text-sm sm:text-base text-zinc-300">{subtitle}</p>
+
+    <div class="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
+      <a href={ctaHref}
+         class="w-full sm:w-auto rounded-lg bg-brand px-4 py-2.5 sm:py-3 text-center font-semibold text-black hover:opacity-90">
+        {ctaLabel}
+      </a>
+      <a href="/"
+         class="w-full sm:w-auto rounded-lg border border-brand px-4 py-2.5 sm:py-3 text-center text-brand hover:bg-brand/10">
+        Back home
+      </a>
     </div>
   </div>
 </section>
